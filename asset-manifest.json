@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/TetrisReactJS/static/css/main.bd4046f5.chunk.css",
+    "main.js": "/TetrisReactJS/static/js/main.bfd9db30.chunk.js",
+    "main.js.map": "/TetrisReactJS/static/js/main.bfd9db30.chunk.js.map",
+    "runtime-main.js": "/TetrisReactJS/static/js/runtime-main.e69b4f9e.js",
+    "runtime-main.js.map": "/TetrisReactJS/static/js/runtime-main.e69b4f9e.js.map",
+    "static/js/2.8d1c101e.chunk.js": "/TetrisReactJS/static/js/2.8d1c101e.chunk.js",
+    "static/js/2.8d1c101e.chunk.js.map": "/TetrisReactJS/static/js/2.8d1c101e.chunk.js.map",
+    "index.html": "/TetrisReactJS/index.html",
+    "static/css/main.bd4046f5.chunk.css.map": "/TetrisReactJS/static/css/main.bd4046f5.chunk.css.map",
+    "static/js/2.8d1c101e.chunk.js.LICENSE.txt": "/TetrisReactJS/static/js/2.8d1c101e.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/TetrisReactJS/static/media/MuseoModerno-Medium.371501c5.ttf",
+    "static/media/bg.d63cfd51.png": "/TetrisReactJS/static/media/bg.d63cfd51.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e69b4f9e.js",
+    "static/js/2.8d1c101e.chunk.js",
+    "static/css/main.bd4046f5.chunk.css",
+    "static/js/main.bfd9db30.chunk.js"
+  ]
+}
