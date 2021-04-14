@@ -1,22 +1,24 @@
 {
   "files": {
-    "main.css": "/TetrisReactJS/static/css/main.bd4046f5.chunk.css",
-    "main.js": "/TetrisReactJS/static/js/main.bfd9db30.chunk.js",
-    "main.js.map": "/TetrisReactJS/static/js/main.bfd9db30.chunk.js.map",
-    "runtime-main.js": "/TetrisReactJS/static/js/runtime-main.e69b4f9e.js",
-    "runtime-main.js.map": "/TetrisReactJS/static/js/runtime-main.e69b4f9e.js.map",
-    "static/js/2.8d1c101e.chunk.js": "/TetrisReactJS/static/js/2.8d1c101e.chunk.js",
-    "static/js/2.8d1c101e.chunk.js.map": "/TetrisReactJS/static/js/2.8d1c101e.chunk.js.map",
+    "main.css": "/TetrisReactJS/static/css/main.b09ae088.chunk.css",
+    "main.js": "/TetrisReactJS/static/js/main.4d2caf98.chunk.js",
+    "main.js.map": "/TetrisReactJS/static/js/main.4d2caf98.chunk.js.map",
+    "runtime-main.js": "/TetrisReactJS/static/js/runtime-main.79caf62e.js",
+    "runtime-main.js.map": "/TetrisReactJS/static/js/runtime-main.79caf62e.js.map",
+    "static/js/2.8ed084ff.chunk.js": "/TetrisReactJS/static/js/2.8ed084ff.chunk.js",
+    "static/js/2.8ed084ff.chunk.js.map": "/TetrisReactJS/static/js/2.8ed084ff.chunk.js.map",
     "index.html": "/TetrisReactJS/index.html",
-    "static/css/main.bd4046f5.chunk.css.map": "/TetrisReactJS/static/css/main.bd4046f5.chunk.css.map",
-    "static/js/2.8d1c101e.chunk.js.LICENSE.txt": "/TetrisReactJS/static/js/2.8d1c101e.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/TetrisReactJS/static/media/MuseoModerno-Medium.371501c5.ttf",
-    "static/media/bg.d63cfd51.png": "/TetrisReactJS/static/media/bg.d63cfd51.png"
+    "precache-manifest.c8a00336870641c100958f09575f1b7f.js": "/TetrisReactJS/precache-manifest.c8a00336870641c100958f09575f1b7f.js",
+    "service-worker.js": "/TetrisReactJS/service-worker.js",
+    "static/css/main.b09ae088.chunk.css.map": "/TetrisReactJS/static/css/main.b09ae088.chunk.css.map",
+    "static/js/2.8ed084ff.chunk.js.LICENSE.txt": "/TetrisReactJS/static/js/2.8ed084ff.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/TetrisReactJS/static/media/MuseoModerno-Medium.66b7fbc4.ttf",
+    "static/media/bg.png": "/TetrisReactJS/static/media/bg.2428afe6.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.e69b4f9e.js",
-    "static/js/2.8d1c101e.chunk.js",
-    "static/css/main.bd4046f5.chunk.css",
-    "static/js/main.bfd9db30.chunk.js"
+    "static/js/runtime-main.79caf62e.js",
+    "static/js/2.8ed084ff.chunk.js",
+    "static/css/main.b09ae088.chunk.css",
+    "static/js/main.4d2caf98.chunk.js"
   ]
 }

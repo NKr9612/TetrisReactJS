@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,KACE,QACF,CAEA,WACE,mBAAoB,CACpB,mFACF","file":"main.bd4046f5.chunk.css","sourcesContent":["body {\n  margin: 0;\n}\n\n@font-face {\n  font-family: \"Pixel\";\n  src: url(\"font/MuseoModerno-Medium.ttf\") format(\"ttf\");\n}\n"]}
