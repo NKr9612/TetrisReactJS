@@ -4,5 +4,5 @@ body {
 
 @font-face {
   font-family: "Pixel";
-  src: url("font/MuseoModerno-Medium.ttf") format("ttf");
+  src: url("font/MuseoModerno-Medium.ttf") format("truetype");
 }

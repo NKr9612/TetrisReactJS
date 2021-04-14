@@ -1,60 +1,89 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { createStage, checkCollision } from '../gameHelpers';
+import { createEtap, checkCollision } from "../gameHelpers";
+import { StyledTetrisWrapp, StyledTetris } from "./styles/StyledTetris";
 
-// Styled Components
-import { StyledTetrisWrapper, StyledTetris } from './styles/StyledTetris';
+// Wlasnie hook'i
+import { useInterval } from "../hooks/useInterval";
+import { usePlayer } from "../hooks/usePlayer";
+import { useEtap } from "../hooks/useEtap";
+import { useGameStatus } from "../hooks/useGameStatus";
 
-// Custom Hooks
-import { usePlayer } from '../hooks/usePlayer';
-import { useStage } from '../hooks/useStage';
-
-// Components
-import Stage from './Stage';
-import Display from './Display';
-import StartButton from './StartButton';
+// Komponenty
+import Etap from "./Etap";
+import Pokaz from "./Pokaz";
+import PrzyciskStart from "./PrzyciskStart";
 
 const Tetris = () => {
   const [dropTime, setDropTime] = useState(null);
   const [gameOver, setGameOver] = useState(false);
+  //korzystanie z hook'ów i metod z "useEtap" i "usePlayer"
+  const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
+  const [stage, setStage, rowsCleared] = useEtap(player, resetPlayer);
+  const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(
+    rowsCleared
+  );
 
-  const [player, updatePlayerPos, resetPlayer] = usePlayer();
-  const [stage, setStage] = useStage(player, resetPlayer);
-
-  console.log('re-render');
-
-  const movePlayer = dir => {
+  console.log("re-render");
+  //funkcja odpowiadajaca za ruchy gracza
+  const movePlayer = (dir) => {
     if (!checkCollision(player, stage, { x: dir, y: 0 })) {
       updatePlayerPos({ x: dir, y: 0 });
     }
-  }
+  };
 
+  const keyUp = ({ keyCode }) => {
+    if (!gameOver) {
+      // Activate the interval again when user releases down arrow.
+      if (keyCode === 40) {
+        setDropTime(1000 / (level + 1));
+      }
+    }
+  };
+  //funkcja zaczynajaca gre
   const startGame = () => {
-    console.log("test")
-    // Reset everything
-    setStage(createStage());
+    //przy wywolywaniu tej funkcji wszystko się resetuje i zaczyna od nowa
+    setStage(createEtap());
+    setDropTime(1000);
     resetPlayer();
+    setScore(0);
+    setLevel(0);
+    setRows(0);
     setGameOver(false);
-  }
-
+  };
+  // funkcja odpowiada za spadanie
   const drop = () => {
+    //podnosi level, gdy gracz zdobędzie 10 wierszy
+    if (rows > (level + 1) * 10) {
+      setLevel((prev) => prev + 1);
+      // zwieksza predkosc spadania klockow
+      setDropTime(1000 / (level + 1) + 200);
+    }
+
     if (!checkCollision(player, stage, { x: 0, y: 1 })) {
-      updatePlayerPos({ x: 0, y: 1, collided: false })
+      updatePlayerPos({ x: 0, y: 1, collided: false });
     } else {
-      // Game Over
+      // tutaj nastepuje koniec gry
       if (player.pos.y < 1) {
-        console.log("GAME OVER!!!");
+        console.log("Koniec gry");
         setGameOver(true);
         setDropTime(null);
       }
       updatePlayerPos({ x: 0, y: 0, collided: true });
     }
-  }
-
+  };
+  //funkcja odpowiadajaca za przyspieszenie klocka, pod wplywem nacisniecia strzalki w dol przez gracza
   const dropPlayer = () => {
+    //nastepuje dezaktywowanie interwału, przy przytrzymanym klawiszu
+    setDropTime(null);
     drop();
-  }
+  };
 
+  //zaczecie gry, hook stworzony przez "Dan Abramov"
+  useInterval(() => {
+    drop();
+  }, dropTime);
+  //funkcja obslugujaca przyciski
   const move = ({ keyCode }) => {
     if (!gameOver) {
       if (keyCode === 37) {
@@ -63,28 +92,37 @@ const Tetris = () => {
         movePlayer(1);
       } else if (keyCode === 40) {
         dropPlayer();
+      } else if (keyCode === 38) {
+        playerRotate(stage, 1);
       }
     }
-  }
+  };
 
   return (
-    <StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)}>
+    //tworzenie struktury aplikacji
+    <StyledTetrisWrapp
+      role='button'
+      tabIndex='0'
+      onKeyDown={(e) => move(e)}
+      onKeyUp={keyUp}
+    >
       <StyledTetris>
-        <Stage stage={stage} />
+        <Etap stage={stage} />
         <aside>
+          {/* instrukcja warunkowa sprawdzająca, czy gra jest skonczona */}
           {gameOver ? (
-            <Display gameOver={gameOver} text="Game Over" />
+            <Pokaz gameOver={gameOver} text='Koniec gry' />
           ) : (
             <div>
-              <Display text="Score" />
-              <Display text="Rows" />
-              <Display text="Level" />
+              <Pokaz text={`Wynik: ${score}`} />
+              <Pokaz text={`Wiersze: ${rows}`} />
+              <Pokaz text={`Level: ${level}`} />
             </div>
           )}
-          <StartButton callback={startGame} />
+          <PrzyciskStart callback={startGame} />
         </aside>
       </StyledTetris>
-    </StyledTetrisWrapper>
+    </StyledTetrisWrapp>
   );
 };
 

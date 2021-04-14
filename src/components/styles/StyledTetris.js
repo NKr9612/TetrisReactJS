@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-
-import bgImage from '../../img/bg.png';
-
-export const StyledTetrisWrapper = styled.div`
+import styled from "styled-components";
+// import obrazka
+import bgImage from "../../img/bg.png";
+//rozmieszczenie elementów
+export const StyledTetrisWrapp = styled.div`
   width: 100vw;
   height: 100vh;
   background: url(${bgImage}) #000;

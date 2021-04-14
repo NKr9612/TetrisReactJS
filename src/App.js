@@ -1,8 +1,8 @@
-import React from 'react';
-import Tetris from './components/Tetris';
-
+import React from "react";
+import Tetris from "./components/Tetris";
+// Komponent łączący
 const App = () => (
-  <div className="App">
+  <div className='App'>
     <Tetris />
   </div>
 );
